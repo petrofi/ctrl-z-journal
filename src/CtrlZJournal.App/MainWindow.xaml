@@ -1,12 +1,121 @@
 ﻿<Window x:Class="CtrlZJournal.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CtrlZJournal.App"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Ctrl+Z Journal"
+        Width="900"
+        Height="760"
+        MinWidth="720"
+        MinHeight="640"
+        WindowStartupLocation="CenterScreen"
+        Background="#F4F5F7">
 
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="32"
+              MaxWidth="760"
+              HorizontalAlignment="Center">
+
+            <Border Background="White"
+                    CornerRadius="18"
+                    Padding="32">
+
+                <StackPanel>
+                    <TextBlock Text="Ctrl+Z Journal"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="#172033"/>
+
+                    <TextBlock Text="Write. Break. Fix. Keep going."
+                               Margin="0,6,0,28"
+                               FontSize="15"
+                               Foreground="#667085"/>
+
+                    <TextBlock Text="Create a work entry"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Foreground="#172033"
+                               Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Title"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <TextBox x:Name="TitleTextBox"
+                             Height="42"
+                             Padding="12,8"
+                             FontSize="14"
+                             Margin="0,0,0,18"/>
+
+                    <TextBlock Text="What did you work on?"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <TextBox x:Name="WorkDescriptionTextBox"
+                             Height="130"
+                             Padding="12"
+                             FontSize="14"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"
+                             Margin="0,0,0,18"/>
+
+                    <Grid Margin="0,0,0,18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Duration in minutes"
+                                       FontWeight="SemiBold"
+                                       Margin="0,0,0,6"/>
+
+                            <TextBox x:Name="DurationTextBox"
+                                     Height="42"
+                                     Padding="12,8"
+                                     FontSize="14"
+                                     Text="60"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Work date"
+                                       FontWeight="SemiBold"
+                                       Margin="0,0,0,6"/>
+
+                            <DatePicker x:Name="WorkDatePicker"
+                                        Height="42"
+                                        FontSize="14"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <TextBlock Text="Mood"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <ComboBox x:Name="MoodComboBox"
+                              Height="42"
+                              Padding="10,6"
+                              FontSize="14"
+                              Margin="0,0,0,24"/>
+
+                    <Button x:Name="SaveEntryButton"
+                            Content="Save Entry"
+                            HorizontalAlignment="Right"
+                            Padding="24,11"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Background="#3157D5"
+                            Foreground="White"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="SaveEntryButton_Click"/>
+
+                    <TextBlock x:Name="StatusTextBlock"
+                               Margin="0,18,0,0"
+                               FontSize="14"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Window>
